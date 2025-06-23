@@ -32,18 +32,20 @@ export class UserDialogComponent {
       idDepartamento: [data?.idDepartamento ?? null, Validators.required],
       idCargo: [data?.idCargo ?? null, Validators.required]
     });
+  }
 
+  ngOnInit(): void {
     this.departmentService.getAll().subscribe(d => this.departamentos = d);
     this.roleService.getAll().subscribe(c => this.cargos = c);
   }
 
-  save() {
+  save(): void {
     if (this.form.valid) {
       this.dialogRef.close(this.form.value);
     }
   }
 
-  cancel() {
+  cancel(): void {
     this.dialogRef.close();
   }
 }
