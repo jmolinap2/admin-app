@@ -1,41 +1,45 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { UserManagementRoutingModule } from './user-management-routing.module';
-import { UserManagementComponent } from './user-management.component';
-import { UserListComponent } from './pages/user-list/user-list.component';
-import { UserTableComponent } from './components/user-table/user-table.component';
-import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
-
-// ✅ Importaciones de Angular Material y formularios
-import { MatTableModule } from '@angular/material/table';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+
+import { UserManagementRoutingModule } from './user-management-routing.module';
+import { UserListComponent } from './pages/user-list/user-list.component';
+import { UserTableComponent } from './components/user-table/user-table.component';
+import { UserDialogComponent } from './components/user-dialog/user-dialog.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { UserManagementComponent } from './user-management.component';
+
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
     UserManagementComponent,
     UserListComponent,
     UserTableComponent,
-    UserDialogComponent 
+    UserDialogComponent
   ],
   imports: [
     CommonModule,
+    RouterModule,
     UserManagementRoutingModule,
-    MatTableModule,
-    MatIconModule,
-    MatButtonModule,
-    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    FormsModule,
-    ReactiveFormsModule
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTableModule,
+    HttpClientModule
   ]
 })
 export class UserManagementModule {}

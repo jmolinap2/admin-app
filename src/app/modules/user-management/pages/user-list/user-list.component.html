@@ -12,20 +12,28 @@
   <div class="user-list__filters">
     <mat-form-field appearance="fill" class="user-list__filter">
       <mat-label>Seleccione un Departamento</mat-label>
-      <mat-select [(value)]="selectedDepartment" (selectionChange)="applyFilters()">
-        <mat-option value="">Todos</mat-option>
-        <mat-option *ngFor="let d of departments" [value]="d">{{ d }}</mat-option>
+      <mat-select [(value)]="selectedDepartamentoId" (selectionChange)="applyFilters()">
+        <mat-option [value]="null">Todos</mat-option>
+        <mat-option *ngFor="let d of departamentos" [value]="d.id">
+          {{ d.nombre }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="user-list__filter">
       <mat-label>Seleccione un Cargo</mat-label>
-      <mat-select [(value)]="selectedRole" (selectionChange)="applyFilters()">
-        <mat-option value="">Todos</mat-option>
-        <mat-option *ngFor="let r of roles" [value]="r">{{ r }}</mat-option>
+      <mat-select [(value)]="selectedCargoId" (selectionChange)="applyFilters()">
+        <mat-option [value]="null">Todos</mat-option>
+        <mat-option *ngFor="let c of cargos" [value]="c.id">
+          {{ c.nombre }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
   </div>
 
-  <app-user-table [users]="filteredUsers" (edit)="openDialog($event)" (delete)="deleteUser($event)"></app-user-table>
+  <app-user-table
+    [users]="filteredUsers"
+    (edit)="openDialog($event)"
+    (delete)="deleteUser($event)">
+  </app-user-table>
 </div>

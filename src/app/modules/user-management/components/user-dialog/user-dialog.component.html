@@ -3,32 +3,45 @@
 <form [formGroup]="form" class="user-dialog__form">
   <mat-form-field appearance="fill" class="user-dialog__field">
     <mat-label>Usuario</mat-label>
-    <input matInput formControlName="username" />
+    <input matInput formControlName="usuario" />
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="user-dialog__field">
-    <mat-label>Nombres</mat-label>
-    <input matInput formControlName="firstName" />
+    <mat-label>Primer Nombre</mat-label>
+    <input matInput formControlName="primerNombre" />
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="user-dialog__field">
-    <mat-label>Apellidos</mat-label>
-    <input matInput formControlName="lastName" />
+    <mat-label>Segundo Nombre</mat-label>
+    <input matInput formControlName="segundoNombre" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="user-dialog__field">
+    <mat-label>Primer Apellido</mat-label>
+    <input matInput formControlName="primerApellido" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="user-dialog__field">
+    <mat-label>Segundo Apellido</mat-label>
+    <input matInput formControlName="segundoApellido" />
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="user-dialog__field">
     <mat-label>Departamento</mat-label>
-    <input matInput formControlName="department" />
+    <mat-select formControlName="idDepartamento">
+      <mat-option *ngFor="let dep of departamentos" [value]="dep.id">
+        {{ dep.nombre }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="user-dialog__field">
     <mat-label>Cargo</mat-label>
-    <input matInput formControlName="role" />
-  </mat-form-field>
-
-  <mat-form-field appearance="fill" class="user-dialog__field">
-    <mat-label>Email</mat-label>
-    <input matInput formControlName="email" />
+    <mat-select formControlName="idCargo">
+      <mat-option *ngFor="let cargo of cargos" [value]="cargo.id">
+        {{ cargo.nombre }}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 
   <div class="user-dialog__actions">
