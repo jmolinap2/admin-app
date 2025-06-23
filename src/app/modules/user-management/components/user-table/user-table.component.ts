@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { User } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-table',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./user-table.component.scss']
 })
 export class UserTableComponent {
+  @Input() users: User[] = [];
+  @Output() edit = new EventEmitter<User>();
+  @Output() delete = new EventEmitter<number>();
 
+  displayedColumns: string[] = ['username', 'firstName', 'lastName', 'department', 'role', 'email', 'actions'];
 }

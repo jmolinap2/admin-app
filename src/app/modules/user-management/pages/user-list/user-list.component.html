@@ -1,1 +1,31 @@
-<p>user-list works!</p>
+<div class="user-list">
+  <div class="user-list__header">
+    <div>
+      <p class="user-list__module-title">Módulo de Administración</p>
+      <h2 class="user-list__title">Administración de usuarios</h2>
+    </div>
+    <button mat-flat-button color="primary" class="user-list__btn" (click)="openDialog()">
+      Crear nuevo usuario
+    </button>
+  </div>
+
+  <div class="user-list__filters">
+    <mat-form-field appearance="fill" class="user-list__filter">
+      <mat-label>Seleccione un Departamento</mat-label>
+      <mat-select [(value)]="selectedDepartment" (selectionChange)="applyFilters()">
+        <mat-option value="">Todos</mat-option>
+        <mat-option *ngFor="let d of departments" [value]="d">{{ d }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="user-list__filter">
+      <mat-label>Seleccione un Cargo</mat-label>
+      <mat-select [(value)]="selectedRole" (selectionChange)="applyFilters()">
+        <mat-option value="">Todos</mat-option>
+        <mat-option *ngFor="let r of roles" [value]="r">{{ r }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <app-user-table [users]="filteredUsers" (edit)="openDialog($event)" (delete)="deleteUser($event)"></app-user-table>
+</div>

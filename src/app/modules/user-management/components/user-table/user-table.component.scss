@@ -1,0 +1,19 @@
+.user-table {
+  &__content {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+
+  th {
+    font-weight: 600;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+  button {
+    margin-right: 4px;
+  }
+}
